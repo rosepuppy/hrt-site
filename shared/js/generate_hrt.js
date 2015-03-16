@@ -26,7 +26,7 @@ function processVideoHRT() {
     writeHRT(palette, currentTime);
 
     // Once we are finished writing the lines for hrt, advance the time by 1/2 second
-    $('#vidprocessor')[0].currentTime = (currentTime + 1000) / 1000;
+    $('#vidprocessor')[0].currentTime = (currentTime + 500) / 1000;
 }
 
 // Palette should be array of 3 rgb colours
