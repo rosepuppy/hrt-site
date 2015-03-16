@@ -1,9 +1,10 @@
 var curTrack = null;
-var curBridge = '192.168.0.101';
-var username = 'hrtdemo';
+var curBridge = '';
+var username = '';
 var lastTime = 0;
 var hrtInterval;
 var prevValues = [];
+var lightids = [];
 var numSources = 4;
 
 for (var i = 0; i < numSources; i++) {
@@ -25,6 +26,10 @@ function setBridge(bridge) {
 
 function setUsername(name) {
   username = name;
+}
+
+function setLights(lights) {
+  lightids = lights;
 }
 
 function setTransitionTime(source, time) {
@@ -156,9 +161,10 @@ function updateHrtFrame() {
   }
 
   if (currentPosition !== null) {
+    var numLights = Math.min(currentPosition.light_cmds.length, lightids.length)
     for (var i = 0; i < currentPosition.light_cmds.length; i++) {
       var source = currentPosition.light_cmds[i];
-      setSourceColor(source.id, source.h, source.s, source.v);
+      setSourceColor(lightids[source.id], source.h, source.s, source.v);
     }
   }
 

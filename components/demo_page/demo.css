@@ -1,6 +1,7 @@
 .demo-wrapper .container {
   width: 970px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .demo-wrapper h1 {

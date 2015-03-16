@@ -25,6 +25,7 @@ define([
       var instance = ngDialog.open({
         template: 'shared/setup_modal/setup_modal.html',
         className: 'ngdialog-theme-default',
+        closeByDocument: false,
         controller: 'SetupModalCtrl'
       })
 
@@ -89,6 +90,7 @@ define([
         $http.put(url, {'alert': 'lselect'});
       } else {
         $scope.closeThisDialog({
+          bridge: $scope.bridge.internalipaddress,
           userName: $scope.userName,
           lights: $scope.lightsInRoom
         });
