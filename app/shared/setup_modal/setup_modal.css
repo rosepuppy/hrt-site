@@ -1,0 +1,23 @@
+.setup-modal-wrapper .bridge-selector {
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.setup-modal-wrapper .description {
+  text-align: center;
+}
+
+.bridge-selector:hover {
+  background-color: #dadada;
+}
+
+#connect-button {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.setup-modal-wrapper .error-message {
+  text-align: center;
+  color: red;
+}

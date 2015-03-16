@@ -1,0 +1,19 @@
+.whatis-wrapper .container {
+  width: 970px;
+  margin: 0 auto;
+}
+
+.whatis-wrapper h1 {
+  font-size: 100px;
+  text-align: center;
+}
+
+.whatis-wrapper .description {
+  text-align: center;
+  color: #919191;
+}
+
+.whatis-wrapper .video-container {
+  margin-top: 20px;
+  text-align: center;
+}

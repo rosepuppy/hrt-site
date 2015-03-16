@@ -1,0 +1,19 @@
+<div class="setup-modal-wrapper">
+  <div class="description"><b>{{description}}</b></div>
+  <div ng-show="step == 0">
+    <div ng-repeat="bridge in bridges" class="bridge-selector" ng-click="selectBridge(bridge)">
+      <b>IP: </b> {{bridge.internalipaddress}} 
+      <b>Name: </b> {{bridge.name}}
+    </div>
+  </div>
+  <div id="connect-button" ng-show="step == 1">
+    <button ng-click="connectBridge()">Connect</button>
+  </div>
+  <div id="connect-button" ng-show="step == 2">
+    <div ng-repeat="light in lights" class="light-selector" ng-show="$index == lightIndex">
+      <button ng-click="selectLight(true, light, $index)">Yes</button>
+      <button ng-click="selectLight(false, light, $index)">No</button>
+    </div>
+  </div>
+  <div class="error-message" ng-show="error.length > 0">{{error}}</div>
+</div>

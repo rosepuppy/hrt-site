@@ -1,0 +1,30 @@
+.detail-content {
+  display: inline-block;
+}
+
+.detail-content-container {
+  border-style: 1px solid #E7E7E7;
+  border-radius: 3px;
+  box-shadow: 0 0 7px #BBB;
+}
+
+.detail-content-container 
+.detail-content-header {
+  border-bottom: 1px solid #E7E7E7;
+  background-color: #BFEFEF;
+  padding: 10px 20px;
+  border-radius: 3px 3px 0 0;
+  overflow: auto;
+}
+
+.detail-content-container 
+.detail-content-header
+.detail-content-title {
+  font-size: 30px;
+  color: #039298;
+}
+
+.detail-content-container 
+.detail-content-content {
+  padding: 10px;
+}

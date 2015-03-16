@@ -1,0 +1,29 @@
+.browse-content-wrapper {
+  margin-top: 50px;
+  margin: auto;
+  max-width: 1366px;
+}
+
+@media screen and (max-width: 1365px){
+  .browse-content-wrapper {
+    max-width: 1095px;
+  }
+}
+
+@media screen and (max-width: 1095px){
+  .browse-content-wrapper {
+    max-width: 825px;
+  }
+}
+
+@media screen and (max-width: 825px){
+  .browse-content-wrapper {
+    max-width: 555px;
+  }
+}
+
+@media screen and (max-width: 555px){
+  .browse-content-wrapper {
+    max-width: 285px;
+  }
+}
