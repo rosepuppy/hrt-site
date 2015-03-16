@@ -17,8 +17,8 @@ define([
     'setupModal',
   function(
     $scope, store, setupModal) {
-    $scope.message = "connecting...";
     $scope.setup = function() {
+      $scope.message = "connecting...";
       setupModal().then(function() {
         var hrtData = store.get('hrt-data');
         if (!hrtData) {
@@ -52,7 +52,7 @@ define([
 
     $('#hrt-player').on('play',function(){
       for (var i = 0; i < lightids.length; i++) {
-        setTransitionTime(lightids[i], 1);
+        setTransitionTime(lightids[i-1], 1);
       }
       hrtInterval = setInterval(updateHrtFrame, 33);
     });
@@ -60,7 +60,7 @@ define([
     $('#hrt-player').on('pause',function(){
       // set transition time back to default
       for (var i = 0; i < lightids.length; i++) {
-        setTransitionTime(lightids[i], 4);
+        setTransitionTime(lightids[i-1], 4);
       }
       clearInterval(hrtInterval)
     });
