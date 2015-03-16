@@ -121,7 +121,7 @@ function parsehrt(hrtFile) {
       if (rules.length > 1){
         commandObj["light_cmds"] = [];
       }
-      for (var j = 1; j< rules.length; j++) {
+      for (var j = 1; j< rules.length-1; j++) {
         rules[j] = rules[j].trim();
         var controlsParts = rules[j].split(",");
         commandObj["light_cmds"].push({

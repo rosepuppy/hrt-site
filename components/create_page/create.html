@@ -1,1 +1,32 @@
-<p>{{text}}</p>
+<div class="create-page-wrapper">
+  <div class="container">
+    <h1>Make your own</h1>
+    <div class="status">{{message}}</div>
+    <form ng-show="connectionEstablished">
+      <span>Video File: </span>
+      <input id="newvid" type="file" accept="video/*">
+      <input id="Process" type="button" value="Process" ng-click="processVideo()">
+    </form>
+
+    <div class="video-container" ng-show="hrtReady"> 
+      <video controls id="hrt-player">
+        <source type="video/mp4">
+        <source type="video/webm">
+        <source type="video/ogg">
+        Video format not supported
+      </video> 
+      <div>
+        <button ng-click="setup()">Reset Connection</button>
+      </div> 
+    </div>
+
+    <div class="video-container" ng-show="true">
+      <video controls id="vidprocessor">
+        <source type="video/mp4">
+        <source type="video/webm">
+        <source type="video/ogg">
+        Video format not supported
+      </video> 
+    </div>
+  </div>
+</div>

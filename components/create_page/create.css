@@ -1,0 +1,24 @@
+.create-page-wrapper .container {
+  width: 970px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.create-page-wrapper h1 {
+  font-size: 48px;
+  text-align: center;
+}
+
+.create-page-wrapper .status {
+  text-align: center;
+  color: #919191;
+}
+
+.create-page-wrapper .video-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.create-page-wrapper input {
+  display: inline-block;
+}
