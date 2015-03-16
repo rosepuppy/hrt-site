@@ -4,15 +4,52 @@ var hrtFile = null;
 var hrtProcessInterval;
 var processedHRT;
 
+function RGBtoHSV(rgb_arr) {
+    var min, max, delta;
+    var h, s, v;
+    var r = rgb_arr[0];
+    var g = rgb_arr[1];
+    var b = rgb_arr[2];
+
+    min = Math.min(r, g, b);
+    max = Math.max(r, g, b);
+    v = max;
+    delta = max - min;
+
+    if(max !== 0)
+        s = delta / max;       // s
+    else {
+        // r = g = b = 0        // s = 0, v is undefined
+        s = 0;
+        h = -1;
+        return [h,s,v];
+    }
+    if (r == max) {
+        h = ( g - b ) / delta;     // between yellow & magenta
+    } else if (g == max) {
+        h = 2 + ( b - r ) / delta; // between cyan & yellow
+    } else {
+        h = 4 + ( r - g ) / delta; // between magenta & cyan
+    }
+    h *= 60;               // degrees
+
+    if (h < 0) {
+        h += 360;
+    }
+
+    return [h,s,v];
+}
+
 // Use color thief to retrieve the 3 dominant colours
 function colorThiefVideoHRT() {
     var video = $('#vidprocessor')[0];
     var thief = new ColorThief();
     // get 3 colours in a colour palette
     var palette = thief.getPalette(video, 2);
-    for (var i = 1; i <= 3; i++) {
-        $('#colorthief' + i).css("background-color", "rgb("+
-            palette[i-1][0]+","+palette[i-1][1]+","+palette[i-1][2]+")");
+
+    // convert to hsv
+    for (var i = 0; i < 3; i++) {
+        palette[i] = RGBtoHSV(palette[i]);
     }
 
     return palette;
