@@ -17,7 +17,7 @@ define([
     'setupModal',
   function(
     $scope, store, setupModal) {
-    $scope.message = "demo";
+    $scope.message = "connecting...";
 
     if (!store.get('hrt-data')) {
       setupModal().then(function() {
@@ -41,7 +41,7 @@ define([
     $('#hrt-player').on('pause',function(){
       clearInterval(hrtInterval)
     });
-    $.get('/components/demo_page/hrt/demo.hrt', function(data) {
+    $.get('components/demo_page/hrt/demo.hrt', function(data) {
       parsehrt(new Blob([data], {type : 'text/html'}));
     });
 
