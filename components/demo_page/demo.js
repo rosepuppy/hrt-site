@@ -24,7 +24,7 @@ define([
       setupModal().then(function() {
         var hrtData = store.get('hrt-data');
         if (!hrtData) {
-          $scope.message = "Was unable to connect to the hues";
+          $scope.message = "Was unable to connect to the hue";
         } else {
           $scope.userName = hrtData.userName;
           $scope.bridge = hrtData.bridge;
@@ -34,7 +34,7 @@ define([
           setUsername($scope.userName);
           setLights($scope.lights);
           getOriginalLightColor($scope.lights);
-          $scope.message = "Successfully established connection to the hues";
+          $scope.message = "Successfully established connection to the hue";
         }
       });
     }
@@ -81,7 +81,7 @@ define([
         setUsername($scope.userName);
         setLights($scope.lights);
         getOriginalLightColor($scope.lights);
-        $scope.message = "Successfully established connection to the hues";
+        $scope.message = "Successfully established connection to the hue";
       })
       .error(function() {
         store.remove('hrt-data');
