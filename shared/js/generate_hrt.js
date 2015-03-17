@@ -17,7 +17,7 @@ function RGBtoHSV(rgb_arr) {
     delta = max - min;
 
     if(max !== 0)
-        s = delta / max;       // s
+        s = (delta / max + 0.05) % 1.0;       // s
     else {
         // r = g = b = 0        // s = 0, v is undefined
         s = 0;
