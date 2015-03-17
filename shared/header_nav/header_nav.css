@@ -7,3 +7,7 @@
 .navbar .container {
   text-align: center;
 }
+
+.navbar #home {
+  float: left;
+}
