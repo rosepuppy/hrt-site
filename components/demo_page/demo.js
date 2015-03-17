@@ -22,13 +22,13 @@ define([
     if (!store.get('hrt-data')) {
       setupModal().then(function() {
         if (!store.get('hrt-data')) {
-          $scope.message = "Was unable successfully connect to the hues";
+          $scope.message = "Was unable successfully connect to the hue";
         } else {
-          $scope.message = "Successfully established connection to the hues";
+          $scope.message = "Successfully established connection to the hue";
         }
       });
     } else {
-      $scope.message = "Successfully established connection to the hues";
+      $scope.message = "Successfully established connection to the hue";
     }
 
     $('#hrt-player').on('play',function(){
