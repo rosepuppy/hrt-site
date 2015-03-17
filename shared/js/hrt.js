@@ -161,10 +161,9 @@ function updateHrtFrame() {
   }
 
   if (currentPosition !== null) {
-    var numLights = Math.min(currentPosition.light_cmds.length, lightids.length)
-    for (var i = 0; i < currentPosition.light_cmds.length; i++) {
+    for (var i = 0; i < lightids.length; i++) {
       var source = currentPosition.light_cmds[i];
-      setSourceColor(lightids[source.id-1], source.h, source.s, source.v);
+      setSourceColor(lightids[(i % currentPosition.light_cmds.length) - 1], source.h, source.s, source.v);
     }
   }
 
