@@ -7,13 +7,15 @@ var prevValues = [];
 var lightids = [];
 var numSources = 4;
 
-for (var i = 0; i < numSources; i++) {
-  prevValues.push({
-    on: null,
-    hue: null,
-    sat: null,
-    bri: null
-  });
+function initPrevValues() {
+  for (var i = 0; i < lightids.length; i++) {
+    prevValues.push({
+      on: null,
+      hue: null,
+      sat: null,
+      bri: null
+    });
+  }
 }
 
 function setTrack(track) {

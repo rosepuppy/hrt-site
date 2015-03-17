@@ -59,6 +59,7 @@ define([
           setBridge($scope.bridge);
           setUsername($scope.userName);
           setLights($scope.lights);
+          initPrevValues();
           getOriginalLightColor($scope.lights);
           $scope.connectionEstablished = true;
           $scope.message = "Successfully established connection to the hues";
@@ -107,6 +108,7 @@ define([
         setBridge($scope.bridge);
         setUsername($scope.userName);
         setLights($scope.lights);
+        initPrevValues();
         getOriginalLightColor($scope.lights);
         $scope.connectionEstablished = true;
         $scope.message = "Successfully established connection to the hues";
