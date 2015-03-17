@@ -102,12 +102,19 @@ define([
       $scope.bridge = hrtData.bridge;
       $scope.lights = hrtData.lights;
 
-      setBridge($scope.bridge);
-      setUsername($scope.userName);
-      setLights($scope.lights);
-      getOriginalLightColor($scope.lights);
-      $scope.connectionEstablished = true;
-      $scope.message = "Successfully established connection to the hues";
+      var url = 'http://' + $scope.bridge + '/api/' + $scope.userName + '/config';
+      $http.get(url, {timeout: 3000}).success(function(data) {
+        setBridge($scope.bridge);
+        setUsername($scope.userName);
+        setLights($scope.lights);
+        getOriginalLightColor($scope.lights);
+        $scope.connectionEstablished = true;
+        $scope.message = "Successfully established connection to the hues";
+      })
+      .error(function() {
+        store.remove('hrt-data');
+        $scope.setup();
+      });
     }
 
     $('#hrt-player').on('play',function(){
@@ -131,7 +138,7 @@ define([
     });
 
     $('#vidprocessor').on('play', function() {
-      hrtProcessInterval = setInterval(processVideoHRT, 33);
+      hrtProcessInterval = setInterval(processVideoHRT, 100);
     });
 
     $('#vidprocessor').on('ended',function(){
@@ -139,7 +146,7 @@ define([
       parsehrt(new Blob([hrtText], {type : 'text/html'}));
       console.log(hrtText);
       $scope.$apply(function() {
-        $scope.message = "processing complete! Give it a try!";
+        $scope.message = "Processing complete! Play the video to test the result!";
         $scope.hrtReady = true;
       })
     });

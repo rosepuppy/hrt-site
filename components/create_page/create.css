@@ -22,3 +22,8 @@
 .create-page-wrapper input {
   display: inline-block;
 }
+
+.instruction {
+  text-align: left;
+  margin-left: 250px;
+}
