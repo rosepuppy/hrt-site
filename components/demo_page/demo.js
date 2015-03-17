@@ -70,7 +70,6 @@ define([
     if (!store.get('hrt-data')) {
       $scope.setup();
     } else {
-<<<<<<< HEAD
       var hrtData = store.get('hrt-data');
       $scope.userName = hrtData.userName;
       $scope.bridge = hrtData.bridge;
