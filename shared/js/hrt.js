@@ -162,8 +162,8 @@ function updateHrtFrame() {
 
   if (currentPosition !== null) {
     for (var i = 0; i < lightids.length; i++) {
-      var source = currentPosition.light_cmds[i];
-      setSourceColor(lightids[(i % currentPosition.light_cmds.length) - 1], source.h, source.s, source.v);
+      var source = currentPosition.light_cmds[(i % currentPosition.light_cmds.length)];
+      setSourceColor(lightids[i], source.h, source.s, source.v);
     }
   }
 
