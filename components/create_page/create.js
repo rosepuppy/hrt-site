@@ -124,6 +124,9 @@ define([
         setTransitionTime(lightids[i], 1);
       }
       hrtInterval = setInterval(updateHrtFrame, 33);
+      if (lightids.length > 0) {
+        ga('send', 'event', 'auto-vid', 'play');
+      }
     });
 
     $('#hrt-player').on('pause',function(){
@@ -131,7 +134,9 @@ define([
       for (var i = 0; i < lightids.length; i++) {
         setTransitionTime(lightids[i], 4);
       }
-      setOriginalLightColor($scope.lights);
+      if ($scope.lights) {
+        setOriginalLightColor($scope.lights);
+      }
       clearInterval(hrtInterval)
     });
 
