@@ -101,7 +101,7 @@ define([
       }
     });
 
-    $('#hrt-player').on('pause',function(){
+    function resetLights() {
       // set transition time back to default
       for (var i = 0; i < lightids.length; i++) {
         setTransitionTime(lightids[i], 4);
@@ -109,8 +109,13 @@ define([
       if ($scope.lights) {
         setOriginalLightColor($scope.lights);
       }
-      clearInterval(hrtInterval)
-    });
+      clearInterval(hrtInterval);
+    }
+
+    $('#hrt-player').on('pause',resetLights);
+
+    $(window).on('beforeunload', resetLights);
+    
     $.get('components/demo_page/hrt/demo.hrt', function(data) {
       parsehrt(new Blob([data], {type : 'text/html'}));
     });
