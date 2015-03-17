@@ -97,7 +97,7 @@ define([
       }
       hrtInterval = setInterval(updateHrtFrame, 33);
       if (lightids.length > 0) {
-        ga('send', 'event', 'demo-vid', 'play');
+        ga('send', 'event', 'demo-vid', 'play', "num_lights", lightids.length);
       }
     });
 
@@ -115,7 +115,7 @@ define([
     $('#hrt-player').on('pause',resetLights);
 
     $(window).on('beforeunload', resetLights);
-    
+
     $.get('components/demo_page/hrt/demo.hrt', function(data) {
       parsehrt(new Blob([data], {type : 'text/html'}));
     });

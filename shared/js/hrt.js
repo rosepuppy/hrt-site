@@ -54,7 +54,7 @@ function setTransitionTime(source, time) {
   }); 
 }
 
-function setSourceColor(source, hue, sat, bri) {
+function setSourceColor(source, index, hue, sat, bri) {
   if (isNaN(source)) {
     return;
   }
@@ -65,24 +65,24 @@ function setSourceColor(source, hue, sat, bri) {
   // console.log(url);
   $("#source"+source).css("background-color", "hsl("+hue+","+sat+"%,"+bri+"%)");
 
-  if (prevValues[source]['on'] == null || prevValues[source]['on'] != on) {
+  if (prevValues[index]['on'] == null || prevValues[index]['on'] != on) {
     body['on'] = on;
-    prevValues[source]['on'] = on;
+    prevValues[index]['on'] = on;
   }
 
-  if (prevValues[source]['hue'] == null || prevValues[source]['hue'] != hue) {
+  if (prevValues[index]['hue'] == null || prevValues[index]['hue'] != hue) {
     body['hue'] = hue*182;
-    prevValues[source]['hue'] = hue;
+    prevValues[index]['hue'] = hue;
   }
 
-  if (prevValues[source]['sat'] == null || prevValues[source]['sat'] != sat) {
+  if (prevValues[index]['sat'] == null || prevValues[index]['sat'] != sat) {
     body['sat'] = sat*2;
-    prevValues[source]['sat'] = sat;
+    prevValues[index]['sat'] = sat;
   }
 
-  if (prevValues[source]['bri'] == null || prevValues[source]['bri'] != bri) {
+  if (prevValues[index]['bri'] == null || prevValues[index]['bri'] != bri) {
     body['bri'] = parseInt(bri*1.5, 10);
-    prevValues[source]['bri'] = bri;
+    prevValues[index]['bri'] = bri;
   }
 
   if (body.length === 0) {
@@ -165,7 +165,7 @@ function updateHrtFrame() {
   if (currentPosition !== null) {
     for (var i = 0; i < lightids.length; i++) {
       var source = currentPosition.light_cmds[(i % currentPosition.light_cmds.length)];
-      setSourceColor(lightids[i], source.h, source.s, source.v);
+      setSourceColor(lightids[i], i, source.h, source.s, source.v);
     }
   }
 

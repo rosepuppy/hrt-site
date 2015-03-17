@@ -78,7 +78,7 @@ define([
     $scope.lightsInRoom = [];
     $scope.selectLight = function(isInRoom, light, index) {
       if (isInRoom) {
-        $scope.lightsInRoom.push(light);
+        $scope.lightsInRoom.push($scope.lights[$scope.lightIndex]);
       }
       var url = 'http://' + $scope.bridge.internalipaddress + '/api/' + $scope.userName + '/lights/' + $scope.lights[$scope.lightIndex] + '/state';
       $http.put(url, {'alert': 'none'});

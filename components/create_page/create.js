@@ -125,7 +125,7 @@ define([
       }
       hrtInterval = setInterval(updateHrtFrame, 33);
       if (lightids.length > 0) {
-        ga('send', 'event', 'auto-vid', 'play');
+        ga('send', 'event', 'demo-vid', 'play', "num_lights", lightids.length);
       }
     });
 
