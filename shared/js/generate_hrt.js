@@ -13,7 +13,7 @@ function RGBtoHSV(rgb_arr) {
 
     min = Math.min(r, g, b);
     max = Math.max(r, g, b);
-    v = max - 15 < 0 ? 0 : max - 15;
+    v = max - 10 < 0 ? 0 : max - 10;
     delta = max - min;
 
     if(max !== 0)
@@ -25,11 +25,11 @@ function RGBtoHSV(rgb_arr) {
         return [h,s,v];
     }
     if (r == max) {
-        h = ( g - b ) / delta;     // between yellow & magenta
+        h = delta == 0 ? 0 : ( g - b ) / delta;     // between yellow & magenta
     } else if (g == max) {
-        h = 2 + ( b - r ) / delta; // between cyan & yellow
+        h = delta == 0 ? 0 : 2 + ( b - r ) / delta; // between cyan & yellow
     } else {
-        h = 4 + ( r - g ) / delta; // between magenta & cyan
+        h = delta == 0 ? 0 : 4 + ( r - g ) / delta; // between magenta & cyan
     }
     h *= 60;               // degrees
 
