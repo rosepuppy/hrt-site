@@ -13,7 +13,7 @@ function RGBtoHSV(rgb_arr) {
 
     min = Math.min(r, g, b);
     max = Math.max(r, g, b);
-    v = max;
+    v = max - 15 < 0 ? 0 : max - 15;
     delta = max - min;
 
     if(max !== 0)
