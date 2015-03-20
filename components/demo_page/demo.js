@@ -112,6 +112,10 @@ define([
       clearInterval(hrtInterval);
     }
 
+    $scope.enableLoop = function() {
+      $('#hrt-player').attr('loop', true);
+    }
+
     $('#hrt-player').on('pause',resetLights);
 
     $(window).on('beforeunload', resetLights);
